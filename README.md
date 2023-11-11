@@ -5,6 +5,11 @@
 </p>
 
 #
+### CLASSIFICAÇÃO
+
+- Medalha de Ouro / 1° Lugar.
+
+#
 ### SOBRE
 
 - Diretório contendo as soluções desenvolvidas em Java, submetidas durante a 10° Maratona de Programação, promovido pelo Centro Paula Souza.
