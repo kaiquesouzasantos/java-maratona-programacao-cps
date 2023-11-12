@@ -19,35 +19,35 @@ public class Subsequencia {
                 int[] a = new int[na];
                 int[] b = new int[nb];
 
-                for (int i=0; i<na; i++) {
+                for (int i = 0; i < na; i++) {
                     a[i] = terminal.nextInt();
                 }
 
-                for (int i=0; i<nb; i++) {
+                for (int i = 0; i < nb; i++) {
                     b[i] = terminal.nextInt();
                 }
 
-                String resp = "Sim";
+                String saida = "Sim";
                 int i = 0, j = 0;
 
                 while (true) {
                     if (a[i] == b[j]) {
                         i += 1;
                         j += 1;
-                    }
-                    else {
+                    } else {
                         i += 1;
                     }
 
                     if (j == b.length)
                         break;
+
                     if (i == a.length) {
-                        resp = "Nao";
+                        saida = "Nao";
                         break;
                     }
                 }
 
-                System.out.println(resp);
+                System.out.println(saida);
             }
         } catch(Exception ignored) {}
     }

@@ -12,7 +12,7 @@ public class Cartoes {
     private static void tratamento() {
         try {
             while(true) {
-                int arthur = 0, francisco = 0;
+                int arthur = 0;
 
                 int num_cartas = terminal.nextInt();
                 encerramento(num_cartas);
@@ -35,10 +35,8 @@ public class Cartoes {
                     }
 
                     if(cartas.get(0) >= cartas.get(cartas.size() -1)) {
-                        francisco += cartas.stream().findFirst().get();
                         cartas.remove(0);
                     } else {
-                        francisco += cartas.get(cartas.size() -1);
                         cartas.remove(cartas.size() -1);
                     }
                 }
@@ -54,15 +52,20 @@ public class Cartoes {
 
     private static void encerramento(int leitura) {
         if(leitura == 0) {
-            int ultimo = saida.size() -1;
-            for(int i = 0; i < saida.size(); i++) {
-                if(i == ultimo) {
-                    System.out.print(saida.get(i));
-                } else {
-                    System.out.println(saida.get(i));
-                }
-            }
+            exibeSaida();
             System.exit(0);
+        }
+    }
+
+    private static void exibeSaida() {
+        int ultimo = saida.size() -1;
+
+        for(int i = 0; i < saida.size(); i++) {
+            if(i == ultimo) {
+                System.out.print(saida.get(i));
+            } else {
+                System.out.println(saida.get(i));
+            }
         }
     }
 }

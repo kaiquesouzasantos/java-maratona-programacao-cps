@@ -38,17 +38,17 @@ public class Grupos {
                     grupo[a] = grupo[b] = grupo[c] = i;
                 }
 
-                int resp = 0;
+                int saida = 0;
 
                 for(int i = 1; i <= m; i++)
                     if(grupo[juntos[i][0]] != grupo[juntos[i][1]])
-                        resp++;
+                        saida++;
 
                 for(int i = 1; i <= d; i++)
                     if(grupo[separados[i][0]] == grupo[separados[i][1]])
-                        resp++;
+                        saida++;
 
-                System.out.println(resp);
+                System.out.println(saida);
             }
         } catch(Exception ignored) {}
     }

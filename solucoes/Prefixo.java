@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Scanner;
 
 public class Prefixo {
@@ -12,26 +15,19 @@ public class Prefixo {
         try {
             while(true) {
                 int contador = 0;
+                List<String> palavras = new ArrayList<>();
 
                 int ignored_01 = terminal.nextInt();
                 encerramento(ignored_01);
 
-                String palavra_01 = terminal.next();
+                palavras.add(terminal.next());
                 int ignored_02 = terminal.nextInt();
-                String palavra_02 = terminal.next();
+                palavras.add(terminal.next());
 
-                String um, dois;
+                palavras = palavras.stream().sorted(Comparator.comparing(String::length)).toList();
 
-                if(ignored_01 < ignored_02) {
-                    um = palavra_01;
-                    dois = palavra_02;
-                } else {
-                    um = palavra_02;
-                    dois = palavra_01;
-                }
-
-                for(int i = 0; i < um.length(); i++) {
-                    if(um.split("")[i].equals(dois.split("")[i]))
+                for(int i = 0; i < palavras.get(0).length(); i++) {
+                    if(palavras.get(0).split("")[i].equals(palavras.get(1).split("")[i]))
                         contador++;
                     else
                         break;

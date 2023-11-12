@@ -17,8 +17,8 @@ public class Estoque {
 
                 int[][] estoque = new int[n][m];
 
-                for (int i=0; i<n; i++) {
-                    for (int j=0; j<m; j++) {
+                for (int i = 0; i < n; i++) {
+                    for (int j = 0; j < m; j++) {
                         estoque[i][j] = terminal.nextInt();
                     }
                 }
@@ -26,16 +26,17 @@ public class Estoque {
                 int total = 0;
                 int p = terminal.nextInt();
 
-                for (int i=0; i<p; i++) {
+                for (int i = 0; i < p; i++) {
                     int tipo = terminal.nextInt() - 1;
                     int tamanho = terminal.nextInt() - 1;
+
                     if (estoque[tipo][tamanho] > 0) {
                         estoque[tipo][tamanho] -= 1;
                         total += 1;
                     }
                 }
 
-                System.out.printf("%d\n", total);
+                System.out.println(total);
             }
         } catch(Exception ignored) {}
     }
