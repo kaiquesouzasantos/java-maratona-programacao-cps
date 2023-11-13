@@ -18,17 +18,18 @@ public class Conta {
                 int farmacia = terminal.nextInt();
                 int padaria = terminal.nextInt();
 
-                int saida = 0;
-
-                int [] contas = {acougue, farmacia, padaria};
+                int[] contas = {acougue, farmacia, padaria};
                 Arrays.sort(contas);
-
-                if (contas[0] + contas[1] + contas[2] <= valor)
-                    saida = 3;
-                else if (contas[0] + contas[1] <= valor)
-                    saida = 2;
-                else if (contas[0] <= valor)
-                    saida = 1;
+                
+                int saida = 0;
+                
+                for(int conta : contas) {
+                    if(conta <= valor) {
+                        saida += 1;
+                    } else {
+                        break;
+                    }
+                }
 
                 System.out.println(saida);
             }
