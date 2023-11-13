@@ -2,6 +2,7 @@ import java.util.*;
 
 public class Conta {
     private static final Scanner terminal = new Scanner(System.in);
+    private static int valor, saida;
 
     public static void main(String[] args) {
         tratamento();
@@ -11,29 +12,33 @@ public class Conta {
     private static void tratamento() {
         try {
             while(true) {
-                int valor = terminal.nextInt();
+                List<Integer> contas = new ArrayList<>();
+                saida = 0;
+
+                valor = terminal.nextInt();
                 encerramento(valor);
 
-                int acougue = terminal.nextInt();
-                int farmacia = terminal.nextInt();
-                int padaria = terminal.nextInt();
-
-                int[] contas = {acougue, farmacia, padaria};
-                Arrays.sort(contas);
-                
-                int saida = 0;
-                
-                for(int conta : contas) {
-                    if(conta <= valor) {
-                        saida += 1;
-                    } else {
-                        break;
-                    }
+                for(int i = 0; i < 3; i++) {
+                    contas.add(terminal.nextInt());
                 }
+
+                contas.sort(Integer::compareTo);
+
+                contas.stream().forEach(
+                        conta -> {
+                            if(conta <= valor)
+                                pagamento(conta);
+                        }
+                );
 
                 System.out.println(saida);
             }
         } catch(Exception ignored) {}
+    }
+
+    private static void pagamento(int conta) {
+        saida++;
+        valor -= conta;
     }
 
     private static void encerramento(int leitura) {
